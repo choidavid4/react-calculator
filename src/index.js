@@ -114,66 +114,27 @@ class Calculator extends React.Component{
       }
     }
 
-    // permitir 1 al principio DONE
-    // agregarlo normalmente si es el primer operador DONE
-    // agregarlo normalmente hasta llegar a dos operadores DONE
-    if(value === "-"){
-      if (firstClick){
-        if(this.state.minusCap) return;
-        if(display != 0){
-          this.setState({formula:display})
-          formula = this.state.formula;
-        }
-        if(
-          formula[formula.length-1] === "+" ||
-          formula[formula.length-1] === "*" ||
-          formula[formula.length-1] === "/" ||
-          formula[formula.length-1] === "-" ||
-          formula === ""
-        ) {
-          this.setState({minusCap: true});
-        }
-        this.formulaConcat("-");
-      }
-      else{ //numero + operacion
-        this.formulaConcat(value);
-        this.setState({minusCap:false});
-      }
-      
-      return;
-    }
-
     //tomar todos los operadores pero a la hora de hacer la cuenta solo ver el ultimo a menos que tengamos "-"
-    if (value === "+" ||  value === "*" || value === "/"){
+    if (value === "+" ||  value === "*" || value === "/" || value == "-"){
 
       if(firstClick){
-        if(this.state.minusCap) return;
-
-        //ESCRIBE SOLO SI DISPLAY != 0
-        if(display != 0){
-          this.setState({formula:display})
-          formula = this.state.formula;
-        }else{
-          return;
-        }
-
-        // REEMPLAZA EL ULTIMO
         if(
-          formula[formula.length-1] === "+" ||
-          formula[formula.length-1] === "*" ||
-          formula[formula.length-1] === "/" ||
-          formula[formula.length-1] === "-"
-        ) {
-          this.setState({
-            formula : formula.slice(0,-1)
-          });
+          formula[formula.length-1] == "+" ||
+          formula[formula.length-1] == "/" ||
+          formula[formula.length-1] == "*"){
+            
+          }
+
+
+        //agregar el display adelante si es distinto de cero
+        if(display != 0){
+          this.formulaConcat(display+value);
+        }else{
+          this.formulaConcat(value);
         }
-        this.formulaConcat(value);
-        this.setState({minusCap:false});
       }
       else{
         this.formulaConcat(value);
-        this.setState({minusCap:false});
       }
       return;
     }
@@ -197,17 +158,16 @@ class Calculator extends React.Component{
       //       formula: this.state.formula.slice(0,-1)});
       // }
       
-      //NO ESTA LLEGANDO A AGREGAR EL NUMERO EN PANTALLA A LA FORMULA
-      // AGREGAR EL NUMERO EN PANTALLA A LA FORMULA EN TIEMPO REAL
       // this.setState({
       //   formula: this.state.formula + display,
       // });
       console.log("formula " + this.state.formula);
-      console.log("display " + display);
-      // console.log("raw Formula= " + this.state.formula);
-      let resultado = this.obtenerResultado(this.state.formula);
+      
+
+      let resultado = this.obtenerResultado(formula);
       this.resetState();
       this.setState({display: resultado});
+      console.log("display " + this.state.display);
       return;
 
     }
