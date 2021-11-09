@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap');
+
+body{
+    margin: 0;
+}
+
+#root{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'IBM Plex Mono', monospace;
+    height: 100vh;
+    background-image: linear-gradient(
+        180deg,
+        rgba(40, 161, 29, 0.3),
+        rgba(119, 26, 114, 0.3)
+    ),
+    url("https://www.manolosimon.com/wp-content/uploads/2020/08/marmoles-blancos-1280x720.jpg");
+    user-select: none;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+#calculator{
+    box-shadow: 4px 4px 30px rgba(0,0,0,0.5);
+    border-radius: 10px 10px 0px 0px;
+}
+
+#pantalla{
+
+    min-height: 150px;
+    max-height: 35vh;
+    background-color: rgb(39, 39, 39);
+    color: white;
+    font-weight: 500;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    font-size: 1.5em;
+    border: 20px rgb(87, 87, 87) solid;
+    border-radius: 10px 10px 0px 0px;
+    
+    max-width: 370px;
+    user-select: text;
+    overflow-y: auto;
+    word-break: break-all;
+    
+}
+
+
+.button{
+    cursor: pointer;
+    border-radius: 10px;
+    background: url("http://www.destefano.com.ar/sites/default/files/styles/slider_ficha_material/public/Negro%20Marquina%20Foto%202.jpg?itok=LxDkcZrI");
+    color: white;
+    font-weight: 500;
+    font-size: 2em;
+    /* margin: 10px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 4px 4px 5px rgba(0,0,0,0.75);
+}
+
+#buttons{
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 75px);
+    grid-template-rows: repeat(5,75px);
+    gap: 10px;
+    grid-template-areas: 
+    "c d m s"
+    "seven eight nine a"
+    "four five six a"
+    "one two three e"
+    "z z decimal e"
+    ;
+    background-color: rgb(240, 240, 240);
+}
+
+#clear{
+    grid-area: c;
+}
+
+#divide{
+    grid-area: d;
+}
+
+#multiply{
+    grid-area: m;
+}
+
+#subtract{
+    grid-area: s;
+}
+
+#seven{
+    grid-area: seven;
+}
+
+#eight{
+    grid-area: eight;
+}
+
+#nine{
+    grid-area: nine;
+}
+
+
+
+#four{grid-area: four;}
+#five{grid-area: five;}
+#six{grid-area: six;}
+#one{grid-area: one;}
+#two{grid-area: two;}
+#three{grid-area: three;}
+
+#equals{
+    grid-area: e;
+}
+
+#zero{
+    grid-area: z;
+}
+
+#decimal{
+    grid-area: decimal;
+}
+
+#add{
+    grid-area: a;
+}
+
+.creditos{
+    margin-top: 25px;
+    text-align: center;
+}
+
+
