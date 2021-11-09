@@ -119,11 +119,11 @@ class Calculator extends React.Component{
               }
             }
         }
-
-
-        //agregar el display adelante si es distinto de cero para seguir operando sobre resultados
         if(display != 0){
-          this.formulaConcat(display+value);
+          this.setState({
+            formula: display + value,
+            display: 0
+          })
         }
       }
       else{
